@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IRON-7 — Mission Control</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- ===== HEADER ===== -->
+      <header class="header">
+        <span class="header-logo">Mission Control</span>
+        <span id="station-name">???</span>
+        <span id="station-status" class="status-badge offline">danada</span>
+        <div class="gauges">
+          <div class="gauge">
+            <span class="gauge-label">O2</span>
+            <div class="gauge-bar"><div id="o2-fill" class="gauge-fill"></div></div>
+            <span id="o2-value" class="gauge-value">0%</span>
+          </div>
+          <div class="gauge">
+            <span class="gauge-label">Energia</span>
+            <div class="gauge-bar"><div id="energy-fill" class="gauge-fill"></div></div>
+            <span id="energy-value" class="gauge-value">0%</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar">
+        <div>
+          <h3 class="sidebar-title">Tripulacion</h3>
+          <div id="crew-list"></div>
+        </div>
+
+        <div class="progress-tracker">
+          <h3 class="sidebar-title">Progreso</h3>
+          <div class="progress-dots">
+            <div class="progress-dot">1</div>
+            <div class="progress-dot">2</div>
+            <div class="progress-dot">3</div>
+            <div class="progress-dot">4</div>
+            <div class="progress-dot">5</div>
+            <div class="progress-dot">6</div>
+            <div class="progress-dot">7</div>
+            <div class="progress-dot">8</div>
+            <div class="progress-dot">B</div>
+          </div>
+          <div class="progress-pct" id="progress-pct">0%</div>
+        </div>
+      </aside>
+
+      <!-- ===== MAIN GRID ===== -->
+      <main class="main">
+        <!-- Puente de Mando -->
+        <div id="mod-puente" class="module-card offline">
+          <div class="module-header">
+            <span class="module-name">Puente de Mando</span>
+            <span class="module-status off">OFFLINE</span>
+          </div>
+          <div class="module-body">
+            <div class="static-overlay"><span>SIN SENAL</span></div>
+          </div>
+        </div>
+
+        <!-- Laboratorio -->
+        <div id="mod-laboratorio" class="module-card offline">
+          <div class="module-header">
+            <span class="module-name">Laboratorio</span>
+            <span class="module-status off">OFFLINE</span>
+          </div>
+          <div class="module-body">
+            <div class="static-overlay"><span>SIN SENAL</span></div>
+          </div>
+        </div>
+
+        <!-- Bahia de Carga -->
+        <div id="mod-bahiacarga" class="module-card offline">
+          <div class="module-header">
+            <span class="module-name">Bahia de Carga</span>
+            <span class="module-status off">OFFLINE</span>
+          </div>
+          <div class="module-body">
+            <div class="static-overlay"><span>SIN SENAL</span></div>
+          </div>
+        </div>
+
+        <!-- Informes (iteraciones 4 y 6) -->
+        <div id="mod-reports" class="module-card offline">
+          <div class="module-header">
+            <span class="module-name">Informes</span>
+            <span class="module-status off">VACIO</span>
+          </div>
+          <div class="module-body" id="reports-body">
+            <div class="static-overlay"><span>SIN INFORMES</span></div>
+          </div>
+        </div>
+
+        <!-- Misiones -->
+        <div id="mod-missions" class="module-card offline missions-panel">
+          <div class="module-header">
+            <span class="module-name">Misiones</span>
+            <span class="module-status off">SIN DATOS</span>
+          </div>
+          <div class="module-body" id="missions-body">
+            <div class="static-overlay"><span>SIN DATOS</span></div>
+          </div>
+        </div>
+      </main>
+
+      <!-- ===== TERMINAL ===== -->
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="terminal-dot"></span>
+          <span class="terminal-title">Consola de Reparacion</span>
+        </div>
+        <div id="terminal-body"></div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/render.js"></script>
+  </body>
+</html>
