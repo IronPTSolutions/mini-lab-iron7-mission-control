@@ -24,7 +24,7 @@ La pagina web es un **dashboard de control de mision** que se actualiza automati
 
 ## Setup
 
-1. Abre el archivo `index.html` en tu navegador
+1. Abre el dashboard en tu navegador: **[https://ironptsolutions.github.io/mini-lab-iron7-mission-control/](https://ironptsolutions.github.io/mini-lab-iron7-mission-control/)**
 2. Abre las **DevTools** (F12 o Cmd+Option+I en Mac)
 3. Ve a la pestana **Console**
 4. Escribe `station` y pulsa Enter para ver el estado actual del objeto
