@@ -164,14 +164,15 @@ for (var i = 0; i < station.crew.length; i++) {
 }
 ```
 
-### Parte B: Informe de modulos con `for...in`
+### Parte B: Informe de modulos con `Object.keys()` + `for`
 
-Crea un array `station.modulesReport` usando un bucle `for...in` que recorra `station.modules`. Cada elemento debe ser un string con el formato: `"modulo: Nombre — STATUS"` donde STATUS es "ONLINE" u "OFFLINE" segun el valor de `.online`.
+Usa `Object.keys(station.modules)` para obtener un array con las claves del objeto, y luego recorrelo con un `for` clasico. Cada elemento debe ser un string con el formato: `"modulo: Nombre — STATUS"` donde STATUS es "ONLINE" u "OFFLINE" segun el valor de `.online`.
 
 ```javascript
 station.modulesReport = [];
-for (var key in station.modules) {
-  // accede a station.modules[key] para leer cada modulo
+var moduleKeys = Object.keys(station.modules);
+for (var i = 0; i < moduleKeys.length; i++) {
+  // usa moduleKeys[i] para acceder a station.modules[moduleKeys[i]]
 }
 ```
 
@@ -191,9 +192,11 @@ for (var i = 0; i < station.crew.length; i++) {
 console.log(station.crewReport);
 // ["[COMANDANTE] Cmte. Reyes", "[CIENTIFICA] Dra. Okafor", "[INGENIERO] Ing. Tanaka"]
 
-// Parte B: for...in sobre el objeto modules
+// Parte B: Object.keys() + for sobre el objeto modules
 station.modulesReport = [];
-for (var key in station.modules) {
+var moduleKeys = Object.keys(station.modules);
+for (var j = 0; j < moduleKeys.length; j++) {
+  var key = moduleKeys[j];
   var mod = station.modules[key];
   var status = mod.online ? 'ONLINE' : 'OFFLINE';
   station.modulesReport.push(key + ': ' + mod.name + ' — ' + status);
@@ -269,13 +272,14 @@ for (var i = 0; i < station.modules.laboratorio.experiments.length; i++) {
 }
 ```
 
-### Parte B: Reporte de temperaturas con `for...in`
+### Parte B: Reporte de temperaturas con `Object.keys()` + `for`
 
-Recorre `station.modules` con `for...in` y crea un **objeto** `station.temperatureReport` donde cada clave es el nombre del modulo y el valor es su temperatura. Solo incluye los modulos que tengan la propiedad `temperature`.
+Usa `Object.keys(station.modules)` para obtener las claves y recorrelas con un `for`. Crea un **objeto** `station.temperatureReport` donde cada clave es el nombre del modulo y el valor es su temperatura. Solo incluye los modulos que tengan la propiedad `temperature`.
 
 ```javascript
 station.temperatureReport = {};
-for (var key in station.modules) {
+var modKeys = Object.keys(station.modules);
+for (var i = 0; i < modKeys.length; i++) {
   // si el modulo tiene temperature, anadelo al objeto
 }
 ```
@@ -296,10 +300,11 @@ for (var i = 0; i < station.modules.laboratorio.experiments.length; i++) {
 console.log(station.experimentLog);
 // ["[EXP-01] Cultivo Hidroponico — 72%", "[EXP-02] Cristales de Gravedad — 45%"]
 
-// Parte B: for...in para construir un objeto
+// Parte B: Object.keys() + for para construir un objeto
 station.temperatureReport = {};
-for (var key in station.modules) {
-  var mod = station.modules[key];
+var modKeys = Object.keys(station.modules);
+for (var j = 0; j < modKeys.length; j++) {
+  var mod = station.modules[modKeys[j]];
   if (typeof mod.temperature === 'number') {
     station.temperatureReport[mod.name] = mod.temperature;
   }
